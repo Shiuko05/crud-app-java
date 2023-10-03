@@ -11,9 +11,9 @@ public class CConexion {
     
     Connection conectar = null;
     
-    String usuario = "abraham";
-    String contrasenia = "123456";
-    String bd = "t421020360";
+    String usuario = "";
+    String contrasenia = "";
+    String bd = "";
     String ip = "localhost";
     String puerto = "3306";
     
