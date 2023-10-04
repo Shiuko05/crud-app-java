@@ -16,7 +16,6 @@ public class CConexion {
     String bd = "t421020360";
     String ip = "localhost";
     String puerto = "3306";
-    
     String cadena = "jdbc:mysql://" + ip + ":" + puerto + "/" + bd;
     
     public CConexion() {

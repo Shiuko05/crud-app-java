@@ -135,7 +135,7 @@ public class CPersonal {
     
     
     
-    public void InsertarEstado(JTextField paramNombre, JTextField paramApePat, 
+    public void InsertarPersonal(JTextField paramNombre, JTextField paramApePat, 
             JTextField paramApeMat, JTextField paramCurp, JTextField paramAdscrip, JTextField paramContract, JTextField paramPuesto,
             JTextField paramFecNac, JTextField paramSexo, JComboBox<String> paramComboEstado, byte[] imagenBytes){
     
@@ -212,7 +212,7 @@ public class CPersonal {
 
 
 
-    public void MostrarEstados(JTable paramTablaTotalAlumnos) {
+    public void MostrarPersonal(JTable paramTablaTotalAlumnos) {
         CConexion objetoConexion = new CConexion();
         DefaultTableModel modelo = new DefaultTableModel();
 
@@ -281,7 +281,7 @@ public class CPersonal {
     }
 
     
-    public void SeleccionarEstados(JTable paramTablaAlumnos, JTextField paramId, JTextField paramNombres, JTextField paramApePat, 
+    public void SeleccionarPersonal(JTable paramTablaAlumnos, JTextField paramId, JTextField paramNombres, JTextField paramApePat, 
             JTextField paramApeMat, JTextField paramCurp, JTextField paramAdscrip, JTextField paramContract, JTextField paramPuesto,
             JTextField paramFecNac, JTextField paramSexo, JComboBox<String> paramComboEstado, JLabel Jphoto){
         
@@ -340,7 +340,7 @@ public class CPersonal {
     }
     
     
-    public void ModificarEstados(JTextField paramCodigo, JTextField paramNombre, JTextField paramApePat,
+    public void ModificarPersonal(JTextField paramCodigo, JTextField paramNombre, JTextField paramApePat,
         JTextField paramApeMat, JTextField paramCurp, JTextField paramAdscrip, JTextField paramContract,
         JTextField paramPuesto, JTextField paramFecNac, JTextField paramSexo, JComboBox<String> paramComboEstado, byte[] imagenBytes) {
 

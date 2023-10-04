@@ -31,7 +31,7 @@ public class FormPersonal extends javax.swing.JFrame {
         txtId.setEnabled(false);
      
         CPersonal objetoAlumnos = new CPersonal();
-        objetoAlumnos.MostrarEstados(tbTotalPersonal);
+        objetoAlumnos.MostrarPersonal(tbTotalPersonal);
     }
     
     private void llenarEstados(){
@@ -307,7 +307,7 @@ public class FormPersonal extends javax.swing.JFrame {
 
     private void tbTotalPersonalMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbTotalPersonalMouseClicked
        CPersonal objetoAlumno = new CPersonal();
-       objetoAlumno.SeleccionarEstados(tbTotalPersonal, txtId, txtNombre, txtApePat, 
+       objetoAlumno.SeleccionarPersonal(tbTotalPersonal, txtId, txtNombre, txtApePat, 
                txtApeMat, txtCurp, txtAdscrip, txtContract, txtPuesto, 
                txtFecNac, txtSexo, comboEstado, Jphoto);
     }//GEN-LAST:event_tbTotalPersonalMouseClicked
@@ -375,24 +375,24 @@ public class FormPersonal extends javax.swing.JFrame {
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         CPersonal objetoAlumno = new CPersonal();
         objetoAlumno.EliminarPersonal(txtId);
-        objetoAlumno.MostrarEstados(tbTotalPersonal);
+        objetoAlumno.MostrarPersonal(tbTotalPersonal);
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
         byte[] imagenBytes = convertirImagenABytes(Jphoto);
         CPersonal objetoAlumno = new CPersonal();
-        objetoAlumno.ModificarEstados(txtId, txtNombre, txtApePat, txtApeMat, txtCurp,
+        objetoAlumno.ModificarPersonal(txtId, txtNombre, txtApePat, txtApeMat, txtCurp,
             txtAdscrip, txtContract, txtPuesto, txtFecNac, txtSexo, 
             comboEstado, imagenBytes);
-        objetoAlumno.MostrarEstados(tbTotalPersonal);
+        objetoAlumno.MostrarPersonal(tbTotalPersonal);
     }//GEN-LAST:event_btnModificarActionPerformed
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         byte[] imagenBytes = convertirImagenABytes(Jphoto);
         CPersonal objetoAlumno = new CPersonal();
-        objetoAlumno.InsertarEstado(txtNombre, txtApePat, txtApeMat, txtCurp, txtAdscrip,
+        objetoAlumno.InsertarPersonal(txtNombre, txtApePat, txtApeMat, txtCurp, txtAdscrip,
             txtContract, txtPuesto, txtFecNac, txtSexo, comboEstado, imagenBytes);
-        objetoAlumno.MostrarEstados(tbTotalPersonal);
+        objetoAlumno.MostrarPersonal(tbTotalPersonal);
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void txtApeMatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtApeMatActionPerformed

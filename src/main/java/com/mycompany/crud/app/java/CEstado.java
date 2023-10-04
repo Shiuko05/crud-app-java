@@ -9,7 +9,11 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.swing.ImageIcon;
+import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
@@ -207,6 +211,53 @@ public class CEstado {
             JOptionPane.showMessageDialog(null,"No se pudo eliminar, error: "+ e.toString());
         }
         
+    }
+    
+    public void InsertarEstado(JTextField paramComboEstado, JTextField paramDescripcion, byte[] imagenBytes){
+        
+        if (!paramComboEstado.getText().isEmpty()) {
+            setIdEstado(paramComboEstado.getText());
+        }
+        if (!paramDescripcion.getText().isEmpty()) {
+            setDescripcion(paramDescripcion.getText());
+        }
+        
+        CConexion objetoConexion = new CConexion();
+
+        String consultaExistencia = "SELECT COUNT(*) FROM estados WHERE idEstado = ?";
+
+        try {
+            CallableStatement csExistencia = objetoConexion.estableceConexion().prepareCall(consultaExistencia);
+            csExistencia.setString(1, getIdEstado());
+            
+            ResultSet resultadoExistencia = csExistencia.executeQuery();
+            
+            resultadoExistencia.next();
+            int count = resultadoExistencia.getInt(1);
+            
+            if (count > 0) {
+                JOptionPane.showMessageDialog(null, "Datos ingresados ya existentes");
+            } else {
+                String consultaInsercion = "INSERT INTO estados (idEstado, descripcion, fotoEstado) VALUES (?, ?, ?);";
+
+                CallableStatement csInsercion = objetoConexion.estableceConexion().prepareCall(consultaInsercion);
+                csInsercion.setString(1, getIdEstado());
+                csInsercion.setString(2, getDescripcion());
+
+                ByteArrayInputStream inputStream = new ByteArrayInputStream(imagenBytes);
+                csInsercion.setBinaryStream(3, inputStream, imagenBytes.length);
+
+                csInsercion.execute();
+
+                JOptionPane.showMessageDialog(null, "Se insertó correctamente el alumno");
+            }
+
+            resultadoExistencia.close();
+            csExistencia.close();
+        } catch (Exception e) {
+             JOptionPane.showMessageDialog(null, "No se pudo realizar la inserción del alumno, error: "+e.getMessage());
+             e.printStackTrace();
+        }
     }
 
 }
